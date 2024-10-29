@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ada Tasks</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <h1 class="title">Ada Tasks</h1>
+
+        <form action="">
+            <fieldset class="taskForm">
+                <label for="task-input"></label>
+                <input type="text" name="task" id="task-input">
+                <button type="submit">Agregar</button>
+            </fieldset>
+            <fieldset class="filterForm">
+                <label for="filter-form"></label>
+                <input type="text" name="filter" id="filter-form">
+            </fieldset>
+            <ul class="taskList"></ul>
+
+        </form>
+    </div>
+    <script src="./main.js"></script>
 </body>
+
 </html>

@@ -34,7 +34,7 @@ for (const task of tasks) {
 if (condicion){
     instruccion
 }
-
+CONDICIONAL TERNARIO
 condicion ? instruccion1 : intruccion2
 */
 

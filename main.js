@@ -20,18 +20,21 @@ const tasks = [
     },
 ];
 
-ulList.innerHTML = '';
 
-buttonAdd.addEventListener('click', (event) => {
-    event.preventDefault();
+for (const task of tasks) {
+    ulList.innerHTML += `
+        <li class="task-item">
+            <input type="checkbox" class="js-checkbox" id="${task.id}">
+            <label class="${task.completed === true ? 'cross-out': ''}"> ${task.name}</label> 
+        </li>
+    `;
+}
+/*
+    - Si la tarea está completada, añadimos una clase
+if (condicion){
+    instruccion
+}
 
-    for (const task of tasks) {
-        ulList.innerHTML += `
-            <li class="task-item">
-                <input type="checkbox" ${task.completed ? "checked" : ""} class="js-checkbox" data-id="${task.id}">
-                <label ${task.completed ? 'style="text-decoration: line-through; color: gray;"' : ''}> ${task.name}</label>
-            </li>
-        `;
-    }
+condicion ? instruccion1 : intruccion2
+*/
 
-})

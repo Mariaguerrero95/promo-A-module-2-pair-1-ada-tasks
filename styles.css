@@ -51,3 +51,6 @@
     padding: 0; /* Opcional: elimina el padding izquierdo */
     margin: 0;  /* Opcional: elimina el margen superior e inferior */
 }
+.cross-out{
+    text-decoration: line-through;
+}

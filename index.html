@@ -9,23 +9,24 @@
 </head>
 
 <body>
+    <h1 class="title">Ada Tasks</h1>
     <div class="container">
-        <h1 class="title">Ada Tasks</h1>
-
-        <form class="form-container" action="">
-            <fieldset class="taskForm">
+        <div class="form-container" action="">
+            <form class="taskForm">
                 <label for="task-input"></label>
-                <input type="text" name="task" id="task-input">
-                <button class="button1" type="submit">Agregar</button>
-            </fieldset>
-            <fieldset class="filterForm">
+                <input class="js-add" type="text" name="task" id="task-input">
+                <button class="button1 js-button1" type="submit">Agregar</button>
+            </form>
+        </div>
+        <div>
+            <form class="filterForm">
                 <label for="filter-form"></label>
                 <input type="text" name="filter" id="filter-form">
                 <button class="button2">Buscar</button>
-            </fieldset>
-            <ul class="taskList"></ul>
 
-        </form>
+            <ul class="taskList js-list"></ul>
+            </form>
+        </div>
     </div>
     <script src="./main.js"></script>
 </body>

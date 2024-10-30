@@ -19,6 +19,8 @@
 }
 
 .container {
+    display: flex;
+    gap: 20px;
     width: 500px;
     background-color: rgb(195, 221, 221);
 }
@@ -27,27 +29,25 @@
     color: aliceblue;
     background-color: rgb(21, 194, 194);
     padding: 5px;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
+    
 }
 
 .taskForm {
     padding: 10px;
-    
 }
 
 .filterForm {
     padding: 10px;
-    display: flex;
-    
 }
 
 .button2 {
     color: aliceblue;
     background-color: rgb(21, 194, 194);
     padding: 5px;
+    margin-left: 5px;
+}
+.taskList {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Opcional: elimina el padding izquierdo */
+    margin: 0;  /* Opcional: elimina el margen superior e inferior */
 }

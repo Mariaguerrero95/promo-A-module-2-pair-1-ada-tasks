@@ -12,16 +12,14 @@ const buttonAdd = document.querySelector (".js-button1");
 const inputButtonAdd = document.querySelector (".js-add");
 const ulList = document.querySelector (".js-list");
 
-const tasks = [
-    { name: "Recoger setas en el campo", completed: true, id: 1 },
-    { name: "Comprar pilas", completed: true, id: 2 },
-    { name: "Poner una lavadora de blancos", completed: true, id: 3 },
-    { name: "Aprender cómo se realizan las peticiones al servidor en JavaScript", completed: false, id: 4,
-    },
+let tasks = [
 ];
 
 
-for (const task of tasks) {
+
+
+const renderTasks = () => {
+    for (const task of tasks) {
     ulList.innerHTML += `
         <li class="task-item">
             <input type="checkbox" class="js-checkbox" id="${task.id}">
@@ -29,6 +27,8 @@ for (const task of tasks) {
         </li>
     `;
 }
+}
+
 /*
     - Si la tarea está completada, añadimos una clase
 if (condicion){
@@ -37,4 +37,30 @@ if (condicion){
 CONDICIONAL TERNARIO
 condicion ? instruccion1 : intruccion2
 */
+
+// const listFetch = document.querySelector (".js-fetch");
+const GITHUB_USER = "<ANGELACAMU>";
+const SERVER_URL = `https://dev.adalab.es/api/todo`;
+
+/* Crear una lista vacia
+   Seleccionar del html la lista
+   crear variables para almacenar la informacion del usuario github y la url
+   -Conseguir la informacion --> Peticion al servidor para conseguir la info y url
+   */
+
+
+
+fetch(SERVER_URL)
+    .then((response) =>{
+        return response.json();
+    })
+
+    .then((data) =>{
+        // const GITHUB_USER = data.
+        console.log(data);
+        tasks = data.results;
+        renderTasks ();
+    })
+
+// listFetch.addEventListener ("click" , handleClick);
 

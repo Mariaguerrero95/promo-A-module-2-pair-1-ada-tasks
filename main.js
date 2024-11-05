@@ -16,8 +16,6 @@ let tasks = [
 ];
 
 
-
-
 const renderTasks = () => {
     for (const task of tasks) {
     ulList.innerHTML += `
@@ -43,12 +41,10 @@ const GITHUB_USER = "<ANGELACAMU>";
 const SERVER_URL = `https://dev.adalab.es/api/todo`;
 
 /* Crear una lista vacia
-   Seleccionar del html la lista
-   crear variables para almacenar la informacion del usuario github y la url
-   -Conseguir la informacion --> Peticion al servidor para conseguir la info y url
+    Seleccionar del html la lista
+    crear variables para almacenar la informacion del usuario github y la url
+    Conseguir la informacion --> Peticion al servidor para conseguir la info y url
    */
-
-
 
 fetch(SERVER_URL)
     .then((response) =>{
@@ -56,11 +52,34 @@ fetch(SERVER_URL)
     })
 
     .then((data) =>{
-        // const GITHUB_USER = data.
-        console.log(data);
         tasks = data.results;
         renderTasks ();
     })
 
-// listFetch.addEventListener ("click" , handleClick);
 
+const handleNewTask = (event) => {
+    event.preventDefault();
+
+    const nameTask = inputButtonAdd.value;
+    const newTask = {
+            name: "nameTask",
+            completed: false,
+    }
+
+    tasks.push(newTask);
+    renderNewTasks();
+}
+const renderNewTasks = () => {
+    for (const task of tasks){
+        ulList.innerHTML += `
+        <li><p>${task.name}</p></li>
+            
+        `
+        console.log("ha hecho click");
+        
+    }
+    }
+
+    
+
+buttonAdd.addEventListener("click", handleNewTask);

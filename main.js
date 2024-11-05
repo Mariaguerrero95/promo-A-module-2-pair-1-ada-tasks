@@ -17,15 +17,33 @@ let tasks = [
 
 
 const renderTasks = () => {
-    for (const task of tasks) {
-    ulList.innerHTML += `
-        <li class="task-item">
-            <input type="checkbox" class="js-checkbox" id="${task.id}">
-            <label class="${task.completed === true ? 'cross-out': ''}"> ${task.name}</label> 
-        </li>
-    `;
+     for (const task of tasks) {
+        const liElement = document.createElement("li");
+        /*vamos a meter el li dentro de la ul*/
+        ulList.appendChild(liElement);
+        liElement.setAttribute("class", "task-item");
+
+        const inputElement = document.createElement("input");
+        liElement.appendChild(inputElement);
+        inputElement.setAttribute("class","js-checkbox");
+        inputElement.setAttribute("type","checkbox");
+        inputElement.setAttribute("id","${task.id}");
+        
+        const labelElement = document.createElement("label");
+        liElement.appendChild(labelElement);
+        labelElement.setAttribute("class","${task.completed === true ? 'cross-out': ''}");
+        labelElement.setAttribute("type","checkbox");
+
+
+    //  ulList.innerHTML += `
+    //      <li class="task-item">
+    //          <input type="checkbox" class="js-checkbox" id="${task.id}">
+    //          <label class="${task.completed === true ? 'cross-out': ''}"> ${task.name}</label> 
+    //     </li>
+    // `;
 }
 }
+renderTasks();
 
 /*
     - Si la tarea está completada, añadimos una clase
@@ -53,33 +71,41 @@ fetch(SERVER_URL)
 
     .then((data) =>{
         tasks = data.results;
-        renderTasks ();
+        renderTasks();
     })
 
 
-const handleNewTask = (event) => {
-    event.preventDefault();
-
-    const nameTask = inputButtonAdd.value;
-    const newTask = {
-            name: "nameTask",
-            completed: false,
-    }
-
-    tasks.push(newTask);
-    renderNewTasks();
-}
-const renderNewTasks = () => {
-    for (const task of tasks){
-        ulList.innerHTML += `
-        <li><p>${task.name}</p></li>
+ const handleNewTask = (event) => {
+     event.preventDefault()
+     const nameTask = inputButtonAdd.value;
+     const newTask = {
+             name: "nameTask",
+             completed: false,
+     }
+     tasks.push(newTask);
+    //  renderNewTasks();
+ }
+// const renderNewTasks = () => {
+//     for (const task of tasks){
+//         ulList.innerHTML += `
+//         <li><p>${task.name}</p></li>
             
-        `
-        console.log("ha hecho click");
+//         `
+//         // console.log("ha hecho click");
         
-    }
-    }
+//     }
+//     }
 
     
 
 buttonAdd.addEventListener("click", handleNewTask);
+
+
+/* Pintar la lista en mi html
+   - Seleccionar la lista
+   - Por cada elemento de la lista (bucle)
+         - Pintar elemento en html
+*/
+
+
+
